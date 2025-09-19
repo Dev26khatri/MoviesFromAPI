@@ -43,7 +43,7 @@ const MoviesCard = (
           onClick={() => HandleAddtoWatchlist(movieObj)}
           className="p-3 m-4 flex justify-center bg-gray-900/60 rounded-lg items-center h-8 w-8 transition-all duration-75 delay-150 hover:scale-125 cursor-pointer"
         >
-          &#x1F60D;
+          &#10003;{" "}
         </div>
       )}
 

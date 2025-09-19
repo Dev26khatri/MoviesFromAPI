@@ -52,7 +52,7 @@ const WatchList = (
   }, [watchlist]);
 
   return (
-    <div className="m-0 p-0 w-full h-screen ">
+    <div className="min-h-screen w-full">
       <div className="flex justify-center flex-wrap m-4">
         {/* all Genres Type at the top of TAB */}
         {GenreList.map((Geners, id) => {
@@ -62,8 +62,8 @@ const WatchList = (
               onClick={() => HandleForGenres(Geners)}
               className={
                 currentGeners == Geners
-                  ? "flex justify-center h-[3rem] w-[9rem ] border rounded-xl m-5 hover:cursor-pointer transition-all duration-150  items-center text-white font-bold bg-indigo-600 px-5 outline-none overflow-hidden"
-                  : "flex justify-center h-[3rem] w-[9rem ] border rounded-xl m-5  hover:bg-indigo-600 hover:cursor-pointer transition-all duration-200 items-center text-white font-bold bg-indigo-400 px-5 outline-none overflow-hidden"
+                  ? "flex justify-center h-[3rem] w-[9rem ] border rounded-xl m-5 hover:cursor-pointer transition-all duration-150  items-center text-white font-bold bg-[#4f000b] px-5 outline-none overflow-hidden"
+                  : "flex justify-center h-[3rem] w-[9rem ] border rounded-xl m-5  hover:bg-[#4f000b] hover:cursor-pointer transition-all duration-200 items-center text-white font-bold bg-[#a4133c] px-5 outline-none overflow-hidden"
               }
             >
               I have {Geners}
@@ -77,10 +77,10 @@ const WatchList = (
           type="text"
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search Movies.."
-          className="h-[3rem] w-[13rem] border rounded-md bg-gray-100 outline-none  px-2"
+          className="h-[3rem] w-[13rem] border rounded-md bg-transparent  outline-none  px-2"
         />
       </div>
-      <div className="overflow-auto   border-gray-200 m-8">
+      <div className="overflow-auto    border-gray-200 m-8">
         <table className="w-full ">
           <thead className="border-b ">
             <tr>
@@ -145,7 +145,7 @@ const WatchList = (
                             className="h-28 w-25 rounded-md object-cover transition-transform shadow-xl duration-500 hover:scale-105 hover:shadow-2xl"
                             src={
                               Movies && Movies.poster_path
-                                ? `https://image.tmdb.org/t/p/w500${Movies.backdrop_path}`
+                                ? `https://image.tmdb.org/t/p/w500${Movies.poster_path}`
                                 : "https://via.placeholder.com/150x200?text=No+Image"
                             }
                             alt={Movies?.original_title || "Movie Poster"}

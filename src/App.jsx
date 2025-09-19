@@ -48,7 +48,7 @@ const App = () => {
   }, []);
   return (
     <BrowserRouter>
-      <div className="bg-[#1a2332] text-[#f8f9fa]">
+      <div className="min-h-screen bg-[#1a2332] text-[#f8f9fa]">
         <NavBar />
         <Routes>
           <Route
