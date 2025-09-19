@@ -2,8 +2,14 @@ import React, { useEffect, useState, createContext } from "react";
 import NavBar from "./components/NavBar";
 import Movies from "./components/Movies";
 import WatchList from "./components/WatchList";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  UNSAFE_RemixErrorBoundary,
+} from "react-router-dom";
 import Banner from "./components/Banner";
+import MoviesDetials from "./components/MoviesDetials";
 
 //Create the Context for the Props
 export const Events = createContext();
@@ -41,8 +47,8 @@ const App = () => {
     }
   }, []);
   return (
-    <>
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="bg-[#1a2332] text-[#f8f9fa]">
         <NavBar />
         <Routes>
           <Route
@@ -67,10 +73,11 @@ const App = () => {
                   HandleAddtoWatchlist={HandleAddtoWatchlist}
                   HandleRemoveWatchlist={HandleRemoveWatchlist}
                   WatchList={watchlist}
-                /> */}
+                  /> */}
               </>
             }
           />
+          <Route path="/movie/:id" element={<MoviesDetials />} />
           <Route
             path="/WatchList"
             element={
@@ -86,8 +93,8 @@ const App = () => {
             }
           />
         </Routes>
-      </BrowserRouter>
-    </>
+      </div>
+    </BrowserRouter>
   );
 };
 

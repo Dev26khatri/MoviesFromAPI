@@ -49,11 +49,10 @@ const WatchList = (
     ];
     //Set temp Gemeres With By defult All Generes
     setGenreList(["All Generes", ...temp]);
-    console.log(temp.map((temps) => temps));
   }, [watchlist]);
 
   return (
-    <div className="m-0 p-0">
+    <div className="m-0 p-0 w-full h-screen ">
       <div className="flex justify-center flex-wrap m-4">
         {/* all Genres Type at the top of TAB */}
         {GenreList.map((Geners, id) => {

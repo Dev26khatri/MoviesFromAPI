@@ -47,9 +47,16 @@ const Movies = ({}) => {
   }, [pageNo]);
 
   return (
-    <div className="p-5">
+    <div className="p-5 ">
       <div className="w-full text-center font-bold text-xl  ">
         Trending Movies
+      </div>
+      <div className="flex justify-center items-center mt-2">
+        <input
+          type="text"
+          placeholder="Search the Moveies..."
+          className="p-3 rounded-xs focus:bg-[#2c2c2c] font-bold border-1"
+        />
       </div>
 
       {/* This Condition is for the If movies are not here in API  */}

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Events } from "../App";
 import { Objects } from "./Movies";
+import { Link } from "react-router-dom";
 const MoviesCard = (
   {
     // poster,
@@ -24,7 +25,7 @@ const MoviesCard = (
 
   return (
     <div
-      className=" overflow-hidden border-1 box-border h-[50vh] w-[200px] flex flex-col justify-between items-end text-center rounded-xl bg-no-repeat bg-cover transform transition-transform duration-500  hover:scale-105"
+      className=" overflow-hidden border-indigo-50 box-border h-[50vh] w-[200px] flex flex-col justify-between items-end text-center rounded-xl bg-no-repeat bg-cover transform transition-transform duration-500  hover:scale-105"
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/w500${movieObj.poster_path})`,
       }}
@@ -46,9 +47,12 @@ const MoviesCard = (
         </div>
       )}
 
-      <p className="  text-lg w-full bg-gray-100 font-medium text-black transition-all delay-75 hover:underline hover:scale-105">
-        {movieObj.original_title}
-      </p>
+      <Link
+        to={`movie/${movieObj.id}`}
+        className="  text-lg w-full bg-[#2c2c2c] font-medium text-[#f8f9fa] transition-all delay-75 hover:underline hover:scale-105"
+      >
+        <p>{movieObj.original_title}</p>
+      </Link>
     </div>
   );
 };
