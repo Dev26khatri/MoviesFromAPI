@@ -18,7 +18,7 @@ const Movies = ({}) => {
   //API key and URL
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY; //This key is the secret key ,GO TMDB AND Genrate Key
   const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${pageNo}`;
-  const Search_API_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`;
+  const Search_API_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}&page=${pageNo}`;
 
   //Paggination logic
   let PrevPage = () => {
@@ -39,8 +39,10 @@ const Movies = ({}) => {
     //Feching the URL When 'pageNo' is changed
     const fetchMovies = async () => {
       try {
+        //Fetching Two API's
         let res = await axios.get(API_URL);
         let SearchURL = await axios.get(Search_API_URL);
+
         if (search.length === 0) {
           setMovies(res.data.results);
         } else {

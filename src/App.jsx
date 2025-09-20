@@ -9,7 +9,7 @@ import {
   UNSAFE_RemixErrorBoundary,
 } from "react-router-dom";
 import Banner from "./components/Banner";
-import MoviesDetials from "./components/MoviesDetials";
+import MoviesDetials from "./components/MoviesDetails";
 
 //Create the Context for the Props
 export const Events = createContext();

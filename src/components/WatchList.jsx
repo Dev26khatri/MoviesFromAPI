@@ -139,20 +139,25 @@ const WatchList = (
                   return (
                     <tr className="border-b" key={Movies.id}>
                       <td className="flex items-center px-6 py-4 ">
-                        <div className="flex flex-col sm:flex-row items-center gap-4 p-2">
-                          <img
-                            // className="h-28 w-20 rounded-md object-cover transition-transform shadow-xl duration-500 hover:scale-105 hover:shadow-2xl"
-                            className="h-28 w-25 rounded-md object-cover transition-transform shadow-xl duration-500 hover:scale-105 hover:shadow-2xl"
-                            src={
-                              Movies && Movies.poster_path
-                                ? `https://image.tmdb.org/t/p/w500${Movies.poster_path}`
-                                : "https://via.placeholder.com/150x200?text=No+Image"
-                            }
-                            alt={Movies?.original_title || "Movie Poster"}
-                          />
-                          <span className="opacity-75 font-medium text-center sm:text-left">
-                            {Movies?.original_title || "Unknown Movie"}
-                          </span>
+                        <div>
+                          <Link
+                            to={`/movie/${Movies.id}`}
+                            className="flex flex-col sm:flex-row items-center gap-4 p-2"
+                          >
+                            <img
+                              // className="h-28 w-20 rounded-md object-cover transition-transform shadow-xl duration-500 hover:scale-105 hover:shadow-2xl"
+                              className="h-28 w-25 rounded-md object-cover transition-transform shadow-xl duration-500 hover:scale-105 hover:shadow-2xl"
+                              src={
+                                Movies && Movies.poster_path
+                                  ? `https://image.tmdb.org/t/p/w500${Movies.poster_path}`
+                                  : "https://via.placeholder.com/150x200?text=No+Image"
+                              }
+                              alt={Movies?.original_title || "Movie Poster"}
+                            />
+                            <span className="block opacity-75 font-medium text-center sm:text-left">
+                              {Movies?.original_title || "Unknown Movie"}
+                            </span>
+                          </Link>
                         </div>
                       </td>
                       <td className="px-6 py-4 text-right">
