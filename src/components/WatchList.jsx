@@ -162,7 +162,11 @@ const WatchList = (
                         {Movies.popularity}
                       </td>
                       <td className="px-6 py-4 text-left">
-                        {Genreid[Movies.genre_ids[0]]}
+                        {Movies.genre_ids.length !== 0 ? (
+                          Genreid[Movies.genre_ids[0]]
+                        ) : (
+                          <>Not any Genres Founded</>
+                        )}
                       </td>
                       <td>
                         <p

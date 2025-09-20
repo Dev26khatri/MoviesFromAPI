@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, use } from "react";
 import MoviesCard from "./MoviesCard";
 import axios from "axios";
 import Paggination from "./Paggination";
@@ -10,12 +10,15 @@ const Movies = ({}) => {
   //Store The API's response means the OBjects
   const [movies, setMovies] = useState([]);
 
+  const [search, setSearch] = useState([]);
+
   //This state for the paggination means Page number
   const [pageNo, setPageNo] = useState(1);
 
   //API key and URL
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY; //This key is the secret key ,GO TMDB AND Genrate Key
   const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${pageNo}`;
+  const Search_API_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`;
 
   //Paggination logic
   let PrevPage = () => {
@@ -37,14 +40,33 @@ const Movies = ({}) => {
     const fetchMovies = async () => {
       try {
         let res = await axios.get(API_URL);
-
-        setMovies(res.data.results);
+        let SearchURL = await axios.get(Search_API_URL);
+        if (search.length === 0) {
+          setMovies(res.data.results);
+        } else {
+          setMovies(SearchURL.data.results);
+        }
       } catch (err) {
         console.error("Fetching Eroro :", err);
       }
     };
     fetchMovies();
-  }, [pageNo]);
+  }, [pageNo, search]);
+
+  //   useEffect(() => {
+  //     let fetch = async () => {
+  //       try {
+  //         let searchResult =
+  //           await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}
+  // `);
+  //         setMovies([...searchResult.data.results]);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     };
+  //     fetch();
+  //   }, [search]);
+  console.log(search);
 
   return (
     <div className="p-5 ">
@@ -56,6 +78,7 @@ const Movies = ({}) => {
           type="text"
           placeholder="Search the Moveies..."
           className="p-3 rounded-xs focus:bg-[#2c2c2c] font-bold border-1"
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
 
