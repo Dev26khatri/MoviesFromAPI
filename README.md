@@ -1,45 +1,37 @@
-<<<<<<< HEAD
-# MoviesFromAPI
+# 🎬 MoviesFromAPI
 
-# MoviesFromAPI🎬
+A simple movie app that fetches data from the [TMDB API](https://www.themoviedb.org/).  
+This project allows users to browse movies and manage a basic watchlist — perfect for learning API integration and React basics.
 
-A simple movie app that fetches data from the [TMDB API](https://www.themoviedb.org/). This project allows users to browse movies and manage a basic watchlist. Perfect for learning API integration and React basics (or your framework of choice).
+---
 
-## Features
+## ✨ Features
 
 - Fetch movies from TMDB API
 - Add movies to your watchlist
 - Remove movies from the watchlist
 - Simple and easy-to-understand codebase
 
+---
 
+## 🚀 Getting Started
 
+### 1️⃣ Prerequisites
 
-## Getting Started
+- **Node.js** installed (v16+ recommended)
+- **npm** or **yarn**
 
-### Prerequisites
+### 2️⃣ Generate a TMDB API Key
 
-- Node.js installed
-- npm or yarn
+Before running this project, you **must generate an API key** from [TMDB](https://www.themoviedb.org/).  
+Without it, the app cannot fetch movie data.
 
-### Installation
-
-```bash
-git clone https://github.com/yourusername/moviewatchlist.git
-cd MoviesFromAPI
-npm install
-npm start
-=======
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> 7fb559a (Adding the Files)
+#### Steps to get your API key:
+1. Go to [https://www.themoviedb.org](https://www.themoviedb.org)
+2. Create a free account or log in if you already have one.
+3. Navigate to your [API settings page](https://www.themoviedb.org/settings/api).
+4. Click **Create** under API key (v3 auth).
+5. Copy the generated key.
+6. Create a `.env` file in your project root and add:
+   ```env
+   VITE_TMDB_API_KEY=your_api_key_here
